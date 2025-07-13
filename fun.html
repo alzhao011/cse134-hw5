@@ -92,6 +92,35 @@
             <dialog open>This is a sample dialog box.</dialog>
             <template><p>This content is inside another tag</p></template>
         </section>
+
+        <section>
+        <h2>Custom Element: Hello World</h2>
+        <hello-world></hello-world>
+
+        <script>
+        class HelloWorld extends HTMLElement {
+            constructor() {
+            super();
+            console.log("Hello World from custom element!");
+            }
+        }
+        customElements.define('hello-world', HelloWorld);
+        </script>
+    </section>
+    <section>
+        <h2>Custom Element: Styled Box</h2>
+        <custom-box>This is a custom-styled element.</custom-box>
+
+        <style>
+        custom-box {
+            display: block;
+            border: 1px solid black;
+            padding: 10px;
+        }
+        </style>
+    </section>
+
+
     </main>
 
     <footer>
