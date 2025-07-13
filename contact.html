@@ -1,63 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | Alan Zhao</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Alan Zhao</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { border: 1px solid gray; }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Contact Me</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="experience.html">Experience</a></li>
-                <li><a href="skills.html">Skills</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="fun.html">Fun Facts</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <hgroup>
+      <h1>Contact Me</h1>
+      <h2>Reach out for inquiries or collaborations</h2>
+    </hgroup>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="fun.html">Fun Facts</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <main>
-        <section>
-            <h2>Contact Form</h2>
-            <form>
-                <fieldset>
-                    <legend>Personal Information</legend>
+  <main>
+    <section>
+      <h2>Contact Form</h2>
+      <form>
+        <fieldset>
+          <legend>Personal Information</legend>
+          <label for="name">Name:</label><br>
+          <input type="text" id="name" name="name" placeholder="Ex: John Doe" required><br>
 
-                    <label for="name">Name:</label><br>
-                    <input type="text" id="name" name="name" placeholder="Ex: John Doe" required /><br>
+          <label for="email">Email:</label><br>
+          <input type="email" id="email" name="email" required><br>
 
-                    <label for="reason">Reason for Contact:</label><br>
-                    <select id="reason" name="reason">
-                        <optgroup label="Career">
-                            <option value="job">Job Opportunity</option>
-                        </optgroup>
-                
-                </fieldset>
-            </form>
-        </section>
+          <label for="comments">Additional Comments:</label><br>
+          <textarea id="comments" name="comments" rows="4" cols="30"></textarea><br>
 
-        <section>
-            <h3>Glossary</h3>
-            <dl>
-                <dt>HTML</dt>
-                <dd>HyperText Markup Language</dd>
-                <dt>CSS</dt>
-                <dd>Cascading Style Sheets</dd>
-            </dl>
-        </section>
+          <label for="method">Preferred Contact Method:</label><br>
+          <input list="method-list" id="method" name="method">
+          <datalist id="method-list">
+            <option value="Email">
+            <option value="Phone">
+            <option value="LinkedIn">
+          </datalist><br>
 
-        <section>
-            <h3>Sample Output</h3>
-            <p>Terminal result: <samp>Server started on port 3000</samp></p>
-        </section>
-        <hr>
-    </main>
+          <button type="submit">Submit</button>
+        </fieldset>
+      </form>
 
-    <footer>
-        <p>&copy; 2025 Alan Zhao</p>
-    </footer>
+      <section>
+        <h3>Glossary</h3>
+        <dl>
+          <dt>API</dt>
+          <dd>Application Programming Interface</dd>
+          <dt>UI</dt>
+          <dd>User Interface</dd>
+        </dl>
+      </section>
+
+      <section>
+        <h3>Output Example</h3>
+        <p>Expected Response Time: <output>24-48 hours</output></p>
+      </section>
+
+      <section>
+        <h3>Reference Links</h3>
+        <figure>
+          <img src="contact-diagram.png" alt="Contact Diagram">
+          <figcaption>Diagram of Contact Process</figcaption>
+        </figure>
+
+        <iframe src="https://www.example.com" width="300" height="200" title="Example Embed"></iframe>
+      </section>
+
+      <section>
+        <h3>Steps to Contact</h3>
+        <ol>
+          <li>Fill the form</li>
+          <li>Submit your inquiry</li>
+          <li>Wait for my response</li>
+        </ol>
+      </section>
+
+      <section>
+        <h3>Scientific Notation</h3>
+        <p>Water: H<sub>2</sub>O</p>
+        <p>Einstein's equation: E = mc<sup>2</sup></p>
+      </section>
+
+      <section>
+        <h3>Sample Output</h3>
+        <p>Terminal Output: <samp>Server started on port 3000</samp></p>
+      </section>
+
+      <section>
+        <label for="site-search">Search this site:</label>
+        <input type="search" id="site-search" name="site-search">
+      </section>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Alan Zhao</p>
+  </footer>
 </body>
 </html>
