@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun | Alan Zhao</title>
+</head>
+<body>
+    <header>
+    <h1>Fun Facts About Me</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="fun.html">Fun Facts</a></li>
+      </ul>
+    </nav>
+    </header>
+
+    <main>
+        <!--About Me-->
+        <section>
+            <h2>About Me</h2>
+            <p>I love listening to music. I do it everywhere and whenever I'm working on things. I listen to a lot of RnB.</p>
+            <p>In the winter I go snowboarding, I've been doing it for 10+ years.</p>
+        </section>
+        
+        <!--Audio and Video-->
+        <section>
+            <h2>Audio and Video</h2>
+            <audio controls>
+                <source src="media/song.mp3" type = "audio/mpeg">
+            </audio>
+            <video width="320" controls>
+                <source src="media/clip.mp4" type="video/mp4">
+            </video>
+        </section>
+
+        <!--Canvas Demo-->
+        <section>
+            <h2>Canvas Demo</h2>
+            <canvas width = "200" height = "200"></canvas>
+            <script>
+                const ctx = document.querySelector("canvas").getContext("2d");
+                ctx.fillStyle = "orange";
+                ctx.fillRect(50, 50, 100, 100);
+            </script>
+        </section>
+
+        <!--Lots of Tags-->
+        <section>
+            <h2>Bunch of Tags</h2>
+            <p>Press <kbd>Ctrl</kbd> + <kbd>S</kbd> to save your work.</p>
+            <p><abbr title="HyperText Markup Language">HTML</abbr> is fun!</p>
+            <blockquote cite="https://en.wikipedia.org/wiki/Muay_Thai">
+                Muay Thai isi known as the art of eight limbs.
+            </blockquote>
+            <cite>Wikipedia</cite>
+            <code>console.log("Hello world");</code>
+            <pre>function greet() {
+                console.log("Hello World");
+            }</pre>
+        </section>
+
+        <section>
+            <h2>Table Example</h2>
+            <table>
+                <caption>Favorite Foods</caption>
+                <colgroup><col><col></colgroup>
+                <thead>
+                    <tr><th>Food</th><th>Rating</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Ramen</td><td>10</td></tr>
+                    <tr><td>Pizza</td><td>9</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!--Misc Tags-->
+        <section>
+            <h2>Misc Tags</h2>
+            <p><dfn>A chatbot</dfn> is a computer program that simulates the human conversation.</p>
+            <p><del>Outdated text</del> <ins>Updated text</ins></p>
+            <progress value="70" max="100"></progress>
+            <details>
+                <summary>Click to expand</summary>
+                <p>This is a hidden detail.</p>
+            </details>
+            <dialog open>This is a sample dialog box.</dialog>
+            <template><p>This content is inside another tag</p></template>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Alan Zhao</p>
+    </footer>
+</body>
+</html>
