@@ -1,2 +1,2 @@
-# cse134-hw2
-HW2 - Semantic HTML and UCD planning
+# cse134-hw3
+HW3 - Standards Based CSS
