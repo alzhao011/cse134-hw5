@@ -1,0 +1,183 @@
+/* styles.css */
+
+/* Import Custom Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+/* CSS Variables with Fallbacks */
+:root {
+  --primary-color: hsl(210, 50%, 40%);
+  --secondary-color: hsl(210, 20%, 96%);
+  --accent-color: hsl(45, 100%, 51%);
+  --font-sans: 'Inter', sans-serif;
+  --font-fallback: 'Helvetica Neue', Arial, sans-serif;
+  --heading-size: 2rem;
+  --body-size: 1rem;
+  --spacing: 1rem;
+}
+
+/* Global Reset and Base Styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: var(--font-sans, var(--font-fallback));
+  font-size: var(--body-size);
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Layout: Header uses Flexbox */
+header {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  padding: var(--spacing);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+header h1 {
+  font-size: var(--heading-size);
+  margin: 0;
+  transition: transform 0.3s ease;
+}
+header h1:hover {
+  transform: scale(1.05);
+}
+
+/* Navigation Styling */
+nav {
+  --nav-gap: var(--spacing);
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: var(--nav-gap);
+  margin: 0;
+  padding: 0;
+}
+nav a {
+  text-decoration: none;
+  color: var(--secondary-color);
+  padding: 0.5em 1em;
+  border-radius: 0.25rem;
+  transition: background-color 0.3s ease;
+}
+nav a:hover,
+nav a:focus {
+  background-color: color-mix(in srgb, var(--secondary-color), var(--accent-color) 50%);
+  color: var(--primary-color);
+}
+
+/* Main Content Grid */
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing);
+  padding: var(--spacing);
+}
+
+/* Section Styling with Animation */
+section {
+  background-color: var(--secondary-color);
+  padding: var(--spacing);
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  animation: fade-in 0.5s ease-in;
+}
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Images */
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 0.5rem;
+}
+
+/* Footer Styling */
+footer {
+  text-align: center;
+  padding: var(--spacing);
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+/* Scoped CSS for Contact Form (Nested Selectors) */
+section.contact-form h2 {
+  color: var(--accent-color);
+}
+section.contact-form form input,
+section.contact-form form textarea,
+section.contact-form form button {
+  font-family: var(--font-sans);
+  font-size: 1em;
+  margin-bottom: 0.5em;
+  transition: all 0.2s ease;
+}
+section.contact-form form input:focus,
+section.contact-form form textarea:focus {
+  outline: 2px solid var(--accent-color);
+  transform: scale(1.01);
+}
+
+/* New Selector Example: :has() */
+nav ul:has(li a.active) {
+  border-bottom: 2px solid var(--accent-color);
+}
+
+/* Dynamic Viewport Units */
+h1 {
+  font-size: 5dvw;
+}
+p {
+  margin-bottom: 2dvh;
+}
+
+/* Relative Units */
+h2 {
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+}
+
+/* Transform & Transition Demo */
+.button-transform {
+  display: inline-block;
+  transform: rotate(0deg);
+  transition: transform 0.5s ease-in-out;
+}
+.button-transform:hover {
+  transform: rotate(5deg) scale(1.1);
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+  nav ul {
+    flex-direction: column;
+    width: 100%;
+  }
+  nav a {
+    width: 100%;
+  }
+}
+@media (min-width: 601px) and (max-width: 1024px) {
+  main {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 1025px) {
+  main {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
