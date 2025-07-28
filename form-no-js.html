@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact | Alan Zhao</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <hgroup>
+      <h1>Contact Me</h1>
+      <h2>Reach out for inquiries or collaborations</h2>
+    </hgroup>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="fun.html">Fun</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="contact-form">
+      <h2>Contact Me</h2>
+      <form action="https://httpbin.org/post" method="POST">
+        <label for="name">
+          Name <span aria-hidden="true">*</span>
+        </label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          minlength="2"
+          placeholder="Your name"
+        />
+
+        <label for="email">
+          Email <span aria-hidden="true">*</span>
+        </label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          placeholder="you@example.com"
+        />
+
+        <label for="comments">
+          Comments <span aria-hidden="true">*</span>
+        </label>
+        <textarea
+          id="comments"
+          name="comments"
+          required
+          minlength="5"
+          maxlength="500"
+          placeholder="This is a test!"
+        ></textarea>
+
+        <!-- Anti‑bot honeypot field -->
+        <input type="hidden" name="possible_bot" value="true" />
+
+        <button type="submit">Send</button>
+
+        <!-- Slots for error/info messages -->
+        <output id="error-msg" role="alert"></output>
+        <output id="info-msg"></output>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Alan Zhao</p>
+  </footer>
+</body>
+</html>
