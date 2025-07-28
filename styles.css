@@ -5,29 +5,24 @@
 
 /* Theme Variables */
 /* Light mode defaults */
+/* Theme Variables */
+/* Light mode defaults */
 :root {
-  /* Font & spacing variables */
-  --font-sans: 'Inter', sans-serif;
-  --font-fallback: 'Helvetica Neue', Arial, sans-serif;
-  --heading-size: 2rem;
-  --body-size: 1rem;
-  --spacing: 1rem;
-
-  /* Color variables for light theme */
-  --primary-color: hsl(210, 50%, 40%);
-  --secondary-color: hsl(210, 20%, 96%);
-  --accent-color: hsl(45, 100%, 51%);
+  /* … your existing light‑mode vars … */
   --background-color: #ffffff;
   --text-color: hsl(210, 10%, 10%);
 }
 
 /* Dark mode overrides */
+html[data-theme="dark"],
 :root[data-theme="dark"] {
+  --background-color: #121212;
+  --text-color: #e0e0e0;
+
+  /* also your other vars */
   --primary-color: hsl(210, 50%, 90%);
   --secondary-color: hsl(210, 20%, 20%);
   --accent-color: hsl(45, 100%, 70%);
-  --background-color: #121212;
-  --text-color: #e0e0e0;
 }
 
 /* Global Reset and Base Styles */
