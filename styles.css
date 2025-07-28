@@ -4,8 +4,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
 /* Theme Variables */
-/* Light mode vars */
-[data-theme="light"] {
+/* Light mode defaults */
+:root {
+  /* Font & spacing variables */
+  --font-sans: 'Inter', sans-serif;
+  --font-fallback: 'Helvetica Neue', Arial, sans-serif;
+  --heading-size: 2rem;
+  --body-size: 1rem;
+  --spacing: 1rem;
+
+  /* Color variables for light theme */
   --primary-color: hsl(210, 50%, 40%);
   --secondary-color: hsl(210, 20%, 96%);
   --accent-color: hsl(45, 100%, 51%);
@@ -13,31 +21,13 @@
   --text-color: hsl(210, 10%, 10%);
 }
 
-/* Dark mode vars */
-[data-theme="dark"] {
+/* Dark mode overrides */
+:root[data-theme="dark"] {
   --primary-color: hsl(210, 50%, 90%);
   --secondary-color: hsl(210, 20%, 20%);
   --accent-color: hsl(45, 100%, 70%);
   --background-color: #121212;
   --text-color: #e0e0e0;
-}
-
-/* Apply background/text from theme */
-body {
-  background-color: var(--background-color);
-  color: var(--text-color);
-}
-
-/* CSS Variables with Fallbacks */
-:root {
-  --primary-color: hsl(210, 50%, 40%);
-  --secondary-color: hsl(210, 20%, 96%);
-  --accent-color: hsl(45, 100%, 51%);
-  --font-sans: 'Inter', sans-serif;
-  --font-fallback: 'Helvetica Neue', Arial, sans-serif;
-  --heading-size: 2rem;
-  --body-size: 1rem;
-  --spacing: 1rem;
 }
 
 /* Global Reset and Base Styles */
@@ -48,8 +38,8 @@ body {
   margin: 0;
   font-family: var(--font-sans, var(--font-fallback));
   font-size: var(--body-size);
-  color: var(--primary-color);
-  background-color: var(--secondary-color);
+  background-color: var(--background-color);
+  color: var(--text-color);
   line-height: 1.6;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -95,6 +85,11 @@ nav a:hover,
 nav a:focus {
   background-color: color-mix(in srgb, var(--secondary-color), var(--accent-color) 50%);
   color: var(--primary-color);
+}
+
+/* Active nav underline */
+nav ul:has(li a.active) {
+  border-bottom: 2px solid var(--accent-color);
 }
 
 /* Main Content Grid */
@@ -161,7 +156,7 @@ section.contact-form button {
   border-radius: 0.25rem;
   width: 100%;
 }
-/* Honeypot is hidden */
+/* Hide honeypot */
 section.contact-form input[type="hidden"] {
   display: none;
 }
@@ -174,11 +169,6 @@ section.contact-form output {
 }
 section.contact-form #info-msg {
   color: var(--primary-color);
-}
-
-/* New Selector Example: :has() */
-nav ul:has(li a.active) {
-  border-bottom: 2px solid var(--accent-color);
 }
 
 /* Dynamic Viewport Units */
