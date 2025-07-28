@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact (with JS) | Alan Zhao</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <hgroup>
+      <h1>Contact Me</h1>
+      <h2>Reach out for inquiries or collaborations</h2>
+    </hgroup>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="fun.html">Fun</a></li>
+        <li><a href="form-with-js.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="contact-form">
+      <h2>Contact Me</h2>
+      <!-- novalidate so we can show our own messages -->
+      <form action="https://httpbin.org/post" method="POST" novalidate>
+        <label for="name">
+          Name <span aria-hidden="true">*</span>
+        </label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          minlength="2"
+          pattern="^[A-Za-z ]+$"
+          placeholder="Your name"
+        />
+
+        <label for="email">
+          Email <span aria-hidden="true">*</span>
+        </label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          placeholder="you@example.com"
+        />
+
+        <label for="comments">
+          Comments <span aria-hidden="true">*</span>
+        </label>
+        <textarea
+          id="comments"
+          name="comments"
+          required
+          minlength="5"
+          maxlength="500"
+          placeholder="This is a test!"
+        ></textarea>
+
+        <!-- Anti‑bot honeypot field -->
+        <input type="hidden" name="possible_bot" value="true" />
+
+        <button type="submit">Send</button>
+
+        <!-- Slots for error/info messages -->
+        <output id="error-msg" role="alert"></output>
+        <output id="info-msg"></output>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Alan Zhao</p>
+  </footer>
+
+  <script>
+    const form = document.querySelector('form');
+    const errorOut = document.getElementById('error-msg');
+    const infoOut = document.getElementById('info-msg');
+    const comments = document.getElementById('comments');
+    const MAX = 500;
+    let form_errors = [];
+
+    // 1. Character‐countdown and warning for comments
+    comments.addEventListener('input', () => {
+      const remaining = MAX - comments.value.length;
+      infoOut.textContent = `${remaining} characters remaining.`;
+      if (remaining < 50) {
+        comments.style.borderColor = 'orange';
+      } else {
+        comments.style.borderColor = '';
+      }
+      // Enforce hard limit
+      if (remaining < 0) {
+        comments.setCustomValidity('Too many characters!');
+      } else {
+        comments.setCustomValidity('');
+      }
+    });
+
+    // 2. Mask invalid characters on name/email fields
+    form.querySelectorAll('input[type="text"], input[type="email"]').forEach(el => {
+      const pattern = new RegExp(el.getAttribute('pattern') || '.+');
+      el.addEventListener('input', e => {
+        const val = el.value;
+        if (!pattern.test(val)) {
+          // flash the field
+          el.style.animation = 'flash 0.3s';
+          setTimeout(() => el.style.animation = '', 300);
+          // custom message
+          const msg = `Invalid character in ${el.name}.`;
+          errorOut.textContent = msg;
+          setTimeout(() => errorOut.textContent = '', 3000);
+        }
+      });
+    });
+
+    // 3. On submit, collect errors and prevent default if invalid
+    form.addEventListener('submit', e => {
+      form_errors = [];
+      if (!form.checkValidity()) {
+        e.preventDefault();
+        // gather invalid fields
+        Array.from(form.elements).forEach(el => {
+          if (el.willValidate && !el.validity.valid) {
+            form_errors.push({
+              field: el.name,
+              message: el.validationMessage
+            });
+          }
+        });
+        errorOut.textContent = 'Please fix the errors above.';
+        // attach form_errors as hidden JSON field
+        let hidden = form.querySelector('input[name="form-errors"]');
+        if (hidden) hidden.remove();
+        hidden = document.createElement('input');
+        hidden.type = 'hidden';
+        hidden.name = 'form-errors';
+        hidden.value = JSON.stringify(form_errors);
+        form.appendChild(hidden);
+      }
+    });
+  </script>
+
+  <style>
+    @keyframes flash {
+      from { background-color: #fee; }
+      to   { background-color: transparent; }
+    }
+  </style>
+</body>
+</html>
