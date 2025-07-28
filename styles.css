@@ -3,6 +3,31 @@
 /* Import Custom Font */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
+/* Theme Variables */
+/* Light mode vars */
+[data-theme="light"] {
+  --primary-color: hsl(210, 50%, 40%);
+  --secondary-color: hsl(210, 20%, 96%);
+  --accent-color: hsl(45, 100%, 51%);
+  --background-color: #ffffff;
+  --text-color: hsl(210, 10%, 10%);
+}
+
+/* Dark mode vars */
+[data-theme="dark"] {
+  --primary-color: hsl(210, 50%, 90%);
+  --secondary-color: hsl(210, 20%, 20%);
+  --accent-color: hsl(45, 100%, 70%);
+  --background-color: #121212;
+  --text-color: #e0e0e0;
+}
+
+/* Apply background/text from theme */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
 /* CSS Variables with Fallbacks */
 :root {
   --primary-color: hsl(210, 50%, 40%);

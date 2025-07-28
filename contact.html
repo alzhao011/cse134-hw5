@@ -21,6 +21,7 @@
         <li><a href="contact.html" class="active">Contact</a></li>
       </ul>
     </nav>
+    <button id="theme-toggle" aria-label="Toggle light/dark theme">🌙</button>
   </header>
 
   <main>
@@ -77,5 +78,26 @@
   <footer>
     <p>&copy; 2025 Alan Zhao</p>
   </footer>
+
+  <script>
+  const btn = document.getElementById('theme-toggle');
+  const root = document.documentElement;
+  // Initialize from localStorage or default to light
+  const saved = localStorage.getItem('theme') || 'light';
+  root.dataset.theme = saved;
+  btn.textContent = saved === 'dark' ? '☀️' : '🌙';
+
+  btn.addEventListener('click', () => {
+    const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    root.dataset.theme = next;
+    localStorage.setItem('theme', next);
+    btn.textContent = next === 'dark' ? '☀️' : '🌙';
+  });
+</script>
+
+<noscript>
+  <p class="no-js-warning">Enable JavaScript to switch themes.</p>
+</noscript>
+
 </body>
 </html>
