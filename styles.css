@@ -110,22 +110,45 @@ footer {
   color: var(--secondary-color);
 }
 
-/* Scoped CSS for Contact Form (Nested Selectors) */
+/* Scoped CSS for Contact Form */
+section.contact-form {
+  padding: var(--spacing);
+}
 section.contact-form h2 {
+  margin-bottom: 0.5rem;
   color: var(--accent-color);
 }
-section.contact-form form input,
-section.contact-form form textarea,
-section.contact-form form button {
-  font-family: var(--font-sans);
-  font-size: 1em;
-  margin-bottom: 0.5em;
-  transition: all 0.2s ease;
+section.contact-form form {
+  display: grid;
+  gap: var(--spacing);
+  max-width: 400px;
+  margin: 2rem auto;
 }
-section.contact-form form input:focus,
-section.contact-form form textarea:focus {
-  outline: 2px solid var(--accent-color);
-  transform: scale(1.01);
+section.contact-form label {
+  font-weight: bold;
+}
+section.contact-form input,
+section.contact-form textarea,
+section.contact-form button {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  width: 100%;
+}
+/* Honeypot is hidden */
+section.contact-form input[type="hidden"] {
+  display: none;
+}
+/* Output areas */
+section.contact-form output {
+  display: block;
+  min-height: 1.2em;
+  font-style: italic;
+  color: red;
+}
+section.contact-form #info-msg {
+  color: var(--primary-color);
 }
 
 /* New Selector Example: :has() */
