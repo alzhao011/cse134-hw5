@@ -214,3 +214,17 @@ h2 {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
+
+/* — Projects cards grid & buttons — */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+#projects button {
+  margin-right: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
