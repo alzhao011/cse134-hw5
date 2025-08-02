@@ -19,13 +19,10 @@ function renderProjects(data) {
 
 async function loadRemote() {
   try {
-    // Fetch the full DB, then pull out projects[]
-    const res = await fetch(
-      'https://my-json-server.typicode.com/alzhao011/cse134-hw5/db'
-    );
+    // ← Load the db.json that lives at the root of your Netlify site
+    const res = await fetch('/db.json');
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const json = await res.json();
-    const projects = json.projects;
+    const { projects } = await res.json();
     localStorage.setItem('projects', JSON.stringify(projects));
     renderProjects(projects);
   } catch (err) {
